@@ -11,10 +11,24 @@ with open('output.json', 'w') as output:
 			if(count != 0):
 				output.write(",")
 			filestrip = file[:-4]
-			name = "{\"name\": \"" + filestrip + "\""
+			name = "{\"name\": \"" + filestrip + "\" , "
 			output.write(name)
+
+			body = []
+			inText = open(file, 'r')
+			while 1:	
+				lines = inText.readline(100000)
+				if not lines:
+					break;
+				for line in lines:
+					body.append(line)
+			bodyText = "\"body\": " + body + ", "
+			output.write(bodyText)		
+
+			image = filestrip + ".png"
+			
 			filename = "hello" + str(count) + ".txt"
-			p = subprocess.Popen("mkdir hello2.txt", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+			p = subprocess.Popen("mkdir hello2", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 			p.wait()
 			output.write("}")
 	output.write("]}")
