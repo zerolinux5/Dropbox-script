@@ -14,15 +14,15 @@ with open('output.json', 'w') as output:
 			name = "{\"name\": \"" + filestrip + "\" , "
 			output.write(name)
 
-			body = []
+			body = ""
 			inText = open(file, 'r')
 			while 1:	
 				lines = inText.readline(100000)
 				if not lines:
 					break;
 				for line in lines:
-					body.append(line)
-			bodyText = "\"body\": " + body + ", "
+					body += line
+			bodyText = "\"body\": \"" + body + "\" , "
 			output.write(bodyText)		
 
 			image = filestrip + ".png"
