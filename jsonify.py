@@ -28,7 +28,7 @@ with open('output.json', 'w') as output:
 			image = filestrip + ".png"
 			
 			filename = "hello" + str(count) + ".txt"
-			p = subprocess.Popen("mkdir hello2", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-			p.wait()
+			#p = subprocess.Popen("mkdir hello2", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+			#p.wait()
 			output.write("}")
 	output.write("]}")
